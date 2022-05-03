@@ -1,0 +1,107 @@
+.button {
+  @include reset-btn;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 0.07em;
+  align-items: center;
+  padding-left: 7px;
+  padding-right: 7px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+  background: radial-gradient(
+      81.93% 81.17% at 50% 46.1%,
+      rgba(252, 87, 77, 0) 37.77%,
+      rgba(252, 87, 77, 0.4) 99.59%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 157, 151, 0.352) 0%,
+      rgba(255, 157, 151, 0) 42.51%
+    ),
+    linear-gradient(180deg, #fc574d 7.01%, #ea2d1d 100%);
+  box-shadow: 0px 16px 50px -20px rgba(234, 45, 29, 0.6), 0px 4px 0px #cc1d0e,
+    inset 0px 4px 4px #ff6f66;
+  border-radius: 6px;
+  @include max-width(278px);
+  min-height: 66px;
+  overflow: hidden;
+  position: relative;
+
+  @media (max-width: 650px) {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background: #fc574d;
+    box-shadow: none;
+  }
+
+  &:active {
+    background: #CC1D0E;
+    box-shadow: none;
+    top: 4px;
+  }
+
+  &::after {
+    content: '';
+    margin-left: 60px;
+    width: 25px;
+    height: 300px;
+    background: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(#fff),
+      to(hsla(0, 0%, 100%, 0.01))
+    );
+    background: linear-gradient(0deg, #fff, hsla(0, 0%, 100%, 0.01));
+    -webkit-animation-delay: 0.05s;
+    animation-delay: 0.05s;
+    position: absolute;
+    left: -90px;
+    top: -150px;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-animation-name: slideme;
+    animation-name: slideme;
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 0;
+  }
+
+  @-webkit-keyframes slideme {
+    0% {
+      left: -30px;
+      margin-left: 0;
+    }
+
+    30%,
+    to {
+      left: 110%;
+      margin-left: 80px;
+    }
+  }
+
+  @keyframes slideme {
+    0% {
+      left: -30px;
+      margin-left: 0;
+    }
+
+    30%,
+    to {
+      left: 110%;
+      margin-left: 80px;
+    }
+  }
+}
