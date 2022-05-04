@@ -1,0 +1,198 @@
+.logic {
+  padding-top: 160px;
+  padding-bottom: 100px;
+  background-color: $blue;
+
+  @media (max-width: 991px) {
+    padding-bottom: 50px;
+  }
+
+  @media (max-width: 650px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.logic__title {
+  @include title;
+  text-align: center;
+  margin-bottom: 34px;
+  color: white;
+
+  @include mobile-mb;
+
+  span {
+    color: $yellow;
+  }
+}
+
+.logic__text {
+  max-width: 883px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+
+  @media (max-width: 650px) {
+    margin-bottom: 30px;
+  }
+}
+
+.logic__list {
+  @include reset-list;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+
+  @media (max-width: 650px) {
+    gap: 20px;
+  }
+}
+
+.logic__item {
+  @include max-width(360px);
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0px 9px 127px rgba(25, 38, 65, 0.23),
+    0px 3.28515px 46.3571px rgba(25, 38, 65, 0.158696),
+    0px 1.59488px 22.5055px rgba(25, 38, 65, 0.127947),
+    0px 0.781839px 11.0326px rgba(25, 38, 65, 0.102053),
+    0px 0.30914px 4.36231px rgba(25, 38, 65, 0.0713042);
+  border-radius: 10px;
+  min-height: 251px;
+  padding-top: 179px;
+  padding-bottom: 26px;
+  padding-left: 27px;
+  padding-right: 27px;
+
+  &::before {
+    position: absolute;
+    content: url('/src/img/icons/logic-pin.png');
+    zoom: 0.5;
+    right: 10px;
+    top: -10px;
+    z-index: 2;
+  }
+
+  &::after {
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    position: absolute;
+    right: 40px;
+    top: 32px;
+    text-shadow: 0px 100px 163px rgba(156, 109, 27, 0.24),
+      0px 41.7776px 68.0975px rgba(156, 109, 27, 0.172525),
+      0px 22.3363px 36.4082px rgba(156, 109, 27, 0.143066),
+      0px 12.5216px 20.4101px rgba(156, 109, 27, 0.12),
+      0px 6.6501px 10.8397px rgba(156, 109, 27, 0.0969343),
+      0px 2.76726px 4.51063px rgba(156, 109, 27, 0.0674749);
+    font-weight: 700;
+    font-size: 28px;
+    text-align: center;
+    background: #f9da49;
+    border: 3px solid #ffffff;
+    box-shadow: 0px 100px 141px rgba(255, 243, 0, 0.18),
+      0px 41.7776px 58.9064px rgba(255, 243, 0, 0.129394),
+      0px 22.3363px 31.4942px rgba(255, 243, 0, 0.107299),
+      0px 12.5216px 17.6554px rgba(255, 243, 0, 0.09),
+      0px 6.6501px 9.37664px rgba(255, 243, 0, 0.0727007),
+      0px 2.76726px 3.90183px rgba(255, 243, 0, 0.0506062);
+  }
+
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      &::after {
+        content: '0#{$i}';
+      }
+
+      .logic__item-text::before {
+        content: url('/src/img/gallery/logic/#{$i}.png');
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    .logic__item-text::before {
+      bottom: 44px;
+
+      @media (max-width: 650px) {
+        bottom: 72px;
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    .logic__item-text::before {
+      left: 43%;
+      bottom: 10px;
+    }
+  }
+
+  &:nth-child(6) {
+    background-color: transparent;
+    padding-top: 122px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-bottom: 35px;
+    border: dashed 1px #dadadb;
+    box-shadow: none;
+
+    &::before {
+      content: none;
+    }
+
+    .logic__item-text {
+      color: white;
+
+      &::before {
+        content: url('/src/img/icons/logic.svg');
+        transform: translateX(-50%) translateY(-100%);
+
+        @media (max-width: 650px) {
+          bottom: 70px;
+        }
+      }
+    }
+
+    .logic__item-bg-line {
+      display: none;
+    }
+  }
+}
+
+.logic__item-bg-line {
+  position: absolute;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  @include central-align;
+  pointer-events: none;
+  border: 1px solid #dadadb;
+  z-index: 1;
+}
+
+.logic__item-text {
+  font-weight: 700;
+  margin-bottom: 0;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    @media (max-width: 650px) {
+      bottom: 40px;
+    }
+  }
+}
