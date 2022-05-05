@@ -1,0 +1,216 @@
+.invest {
+  padding-top: 89px;
+  padding-bottom: 94px;
+  background-color: #1964aa;
+  @include bg;
+  background-image: url('/src/img/bgs/invest-bg.jpg');
+
+  @media (max-width: 1150px) {
+    background-image: none;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  @media (max-width: 650px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.invest__title {
+  @include title;
+  text-align: center;
+  color: white;
+  margin-bottom: 32px;
+
+  @include mobile-mb;
+
+  span {
+    color: $yellow;
+  }
+}
+
+.invest__text {
+  font-size: 20px;
+  margin-bottom: 64px;
+  text-align: center;
+  color: white;
+
+  @include tablet-mb;
+  @include mobile-mb;
+}
+
+.invest__content-wrapper {
+  position: relative;
+  max-width: 652px;
+  margin-left: auto;
+
+  @media (max-width: 1150px) {
+    margin-right: auto;
+  }
+
+  &::after {
+    position: absolute;
+    content: url('/src/img/invest-phone-full.png');
+    left: -885px;
+    top: -78px;
+    z-index: -1;
+
+    @media (max-width: 1150px) {
+      position: relative;
+      left: 0;
+      top: 0;
+      display: block;
+      @include max-width(376px);
+      aspect-ratio: 376/760;
+      content: '';
+      @include bg;
+      background-image: url('/src/img/invest-phone.png');
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.invest__content {
+  background: #ffffff;
+  box-shadow: 0px 9px 127px rgba(25, 38, 65, 0.23),
+    0px 3.28515px 46.3571px rgba(25, 38, 65, 0.158696),
+    0px 1.59488px 22.5055px rgba(25, 38, 65, 0.127947),
+    0px 0.781839px 11.0326px rgba(25, 38, 65, 0.102053),
+    0px 0.30914px 4.36231px rgba(25, 38, 65, 0.0713042);
+  border-radius: 10px;
+  padding-top: 10px;
+  position: relative;
+  margin-bottom: 64px;
+
+  @media (max-width: 1150px) {
+    margin-bottom: 20px;
+  }
+
+  &::before {
+    position: absolute;
+    content: url('/src/img/invest-doc.png');
+    right: -248px;
+    top: 80px;
+    z-index: -1;
+
+    @media (max-width: 1150px) {
+      content: none;
+    }
+  }
+}
+
+.invest__list {
+  @include reset-list;
+  margin: 10px;
+  margin-top: 0;
+  border-radius: 10px;
+  border: 1px solid #dadadb;
+}
+
+.invest__item {
+  display: flex;
+  min-height: 99px;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #dadadb;
+
+  @media (max-width: 650px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  @for $i from 1 through 7 {
+    &:nth-child(#{$i}) .invest__item-text::before {
+      background-image: url('/src/img/icons/invest/#{$i}.svg');
+    }
+  }
+}
+
+.invest__item-text {
+  padding-left: 87px;
+  position: relative;
+  margin-bottom: 0;
+  font-size: 20px;
+  width: 77%;
+  border-right: 1px solid #dadadb;
+  height: 99px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 650px) {
+    width: 75%;
+    padding-left: 56px;
+    font-size: 14px !important;
+  }
+
+  &::before {
+    position: absolute;
+    left: 0;
+    @include y-align;
+    content: '';
+    @include bg;
+    width: 67px;
+    height: 67px;
+
+    @media (max-width: 650px) {
+      zoom: 0.7;
+    }
+  }
+}
+
+.invest__item-number {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0;
+
+  @media (max-width: 650px) {
+    font-size: 14px !important;
+  }
+}
+
+.invest__content-bottom {
+  background-color: $yellow;
+  padding-left: 30px;
+  padding-right: 30px;
+  min-height: 81px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+}
+
+.invest__bottom-text {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 0;
+
+  @media (max-width: 650px) {
+    font-size: 20px !important;
+  }
+}
+
+.invest__bottom-number {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 0;
+
+  @media (max-width: 650px) {
+    font-size: 20px !important;
+  }
+}
+
+.invest__note {
+  max-width: 849px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
