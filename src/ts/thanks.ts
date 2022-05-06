@@ -1,5 +1,5 @@
 import '../scss/thanks.scss';
-// import './modals';
+import './modals';
 
 const userName = localStorage.getItem('userName');
 const userCity = localStorage.getItem('userCity');
@@ -10,8 +10,8 @@ nameLabelEl.textContent = userName
   ? `${localStorage.getItem('userName')},`
   : 'Гость,';
 cityLabelEl.textContent = userCity
-  ? 'за обращение в компанию «Память потомков»©'
-  : `за заявку на город ${userCity} на франшизу «Память потомков»©`;
+  ? `за заявку на город ${userCity} на франшизу «Память потомков»©`
+  : 'за обращение в компанию «Память потомков»©';
 
 document.title = userName
   ? `${userName}, спасибо, Ваша заявка принята`

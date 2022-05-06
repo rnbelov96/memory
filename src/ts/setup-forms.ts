@@ -39,6 +39,6 @@ formsList.forEach(form => {
 
   nameInputEl?.addEventListener('focus', onFocus);
   phoneInputEl.addEventListener('focus', onFocus);
-  emailInputEl.addEventListener('focus', onFocus);
+  emailInputEl?.addEventListener('focus', onFocus);
   cityInputEl?.addEventListener('focus', onFocus);
 });

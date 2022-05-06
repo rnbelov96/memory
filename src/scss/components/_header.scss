@@ -4,6 +4,15 @@
   @media (max-width: 650px) {
     padding-top: 10px;
   }
+
+  &_thanks {
+    padding-bottom: 20px;
+    background-color: black;
+    
+    @media (max-width: 650px) {
+      padding-bottom: 10px;
+    }
+  }
 }
 
 .header__content {

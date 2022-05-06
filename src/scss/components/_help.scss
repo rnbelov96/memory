@@ -122,7 +122,7 @@
 
   @for $i from 1 through 2 {
     &:nth-child(#{$i})::before {
-      background-image: url('/src/img/icons/help/#{$i}.svg');
+      background-image: url('/src/img/icons/help/2.svg');
     }
   }
 
