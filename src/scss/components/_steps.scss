@@ -121,6 +121,10 @@
   font-size: 20px;
   font-weight: bold;
   position: relative;
+  margin-bottom: 70px;
+
+  @include tablet-mb;
+  @include mobile-mb;
 
   @media (max-width: 650px) {
     padding-left: 90px;

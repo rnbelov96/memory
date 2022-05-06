@@ -39,6 +39,14 @@
 .web__text {
   font-size: 20px;
   margin-bottom: 726px;
+  width: 1192px;
+  position: relative;
+  left: -50px;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    left: 0;
+  }
 
   @media (max-width: 767px) {
     margin-bottom: 0;

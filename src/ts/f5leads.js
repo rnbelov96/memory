@@ -16,7 +16,7 @@ const validateForm = form => {
     phoneInputEl.classList.add('input-error');
     isOk = false;
   }
-  if (emailInputEl.value === '') {
+  if (emailInputEl && emailInputEl.value === '') {
     emailInputEl.classList.add('input-error');
     isOk = false;
   }
@@ -26,14 +26,21 @@ const validateForm = form => {
   }
 
   if (
-    phoneInputEl.value !== ''
-    && !validator.isMobilePhone(`${phoneInputEl.value.replace(/\(|\)|-|_|\s/g, '')}`, 'ru-RU')
+    phoneInputEl.value !== '' &&
+    !validator.isMobilePhone(
+      `${phoneInputEl.value.replace(/\(|\)|-|_|\s/g, '')}`,
+      'ru-RU',
+    )
   ) {
     phoneInputEl.classList.add('input-error');
     isOk = false;
   }
 
-  if (emailInputEl.value !== '' && !validator.isEmail(emailInputEl.value)) {
+  if (
+    emailInputEl &&
+    emailInputEl.value !== '' &&
+    !validator.isEmail(emailInputEl.value)
+  ) {
     emailInputEl.classList.add('input-error');
     isOk = false;
   }
@@ -41,6 +48,12 @@ const validateForm = form => {
   if (isOk) {
     if (nameInputEl) {
       localStorage.setItem('userName', nameInputEl.value);
+    } else {
+      localStorage.setItem('userName', '');
+    }
+
+    if (cityInputEl) {
+      localStorage.setItem('userCity', nameInputEl.value);
     } else {
       localStorage.setItem('userName', '');
     }
@@ -115,13 +128,16 @@ document.addEventListener('DOMContentLoaded', () => {
   localStorage.utm_source = document.formData.utm_source;
   document.formData.utm_medium = localStorage.utm_medium || qs.utm_medium || '';
   localStorage.utm_medium = document.formData.utm_medium;
-  document.formData.utm_campaign = localStorage.utm_campaign || qs.utm_campaign || '';
+  document.formData.utm_campaign =
+    localStorage.utm_campaign || qs.utm_campaign || '';
   localStorage.utm_campaign = document.formData.utm_campaign;
   document.formData.utm_term = localStorage.utm_term || qs.utm_term || '';
   localStorage.utm_term = document.formData.utm_term;
-  document.formData.utm_content = localStorage.utm_content || qs.utm_content || '';
+  document.formData.utm_content =
+    localStorage.utm_content || qs.utm_content || '';
   localStorage.utm_content = document.formData.utm_content;
-  document.formData.utm_placement = localStorage.utm_placement || qs.utm_placement || '';
+  document.formData.utm_placement =
+    localStorage.utm_placement || qs.utm_placement || '';
   localStorage.utm_placement = document.formData.utm_placement;
 
   ymaps.ready(() => {
@@ -147,7 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ...objectifyForm([...new FormData(form).entries()]),
       };
 
-      if (document.formData.name === undefined) document.formData.name = window.location.hostname;
+      if (document.formData.name === undefined)
+        document.formData.name = window.location.hostname;
 
       // fetch(
       //   `welcomemail.php?name=${document.formData.name}&email=${document.formData.email}`,
@@ -179,17 +196,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const data = JSON.stringify(document.formData);
 
-      const response = await fetch(
-        'https://f5leads.franch5.ru/add_lead',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache',
-          },
-          body: data,
+      const response = await fetch('https://f5leads.franch5.ru/add_lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache',
         },
-      );
+        body: data,
+      });
 
       if (!response.ok) {
         window.location = 'error.html';
@@ -197,13 +211,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (
-        document.f5leads.expect_second_form === '1'
-        && form.classList.contains('secondform')
+        document.f5leads.expect_second_form === '1' &&
+        form.classList.contains('secondform')
       ) {
-        if (document.f5leads.onSubmitSecondForm !== undefined) document.f5leads.onSubmitSecondForm(form);
+        if (document.f5leads.onSubmitSecondForm !== undefined)
+          document.f5leads.onSubmitSecondForm(form);
       } else {
         localStorage.lastFirstFormData = JSON.stringify(document.formData);
-        if (document.f5leads.onSubmitFirstForm !== undefined) document.f5leads.onSubmitFirstForm(form);
+        if (document.f5leads.onSubmitFirstForm !== undefined)
+          document.f5leads.onSubmitFirstForm(form);
       }
     });
   });

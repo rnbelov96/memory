@@ -109,6 +109,10 @@
       background-image: url('/src/img/icons/form/#{$i}.svg');
     }
   }
+
+  &_city::before {
+    background-image: url('/src/img/icons/form/4.svg') !important;
+  }
 }
 
 .line-form__input {
