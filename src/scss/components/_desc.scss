@@ -5,6 +5,11 @@
   background-image: url('/src/img/bgs/desc-bg.jpg');
   color: white;
 
+  @media (min-width: 3000px) {
+    background-size: auto;
+    height: 900px;
+  }
+
   @media (max-width: 650px) {
     min-height: auto;
     padding-bottom: 30px;

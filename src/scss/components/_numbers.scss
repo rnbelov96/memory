@@ -5,6 +5,10 @@
   @include bg;
   background-image: url('/src/img/bgs/numbers-bg.jpg');
 
+  @media (min-width: 1920px) {
+    background-size: auto;
+  }
+
   @media (max-width: 650px) {
     padding-top: 30px;
     padding-bottom: 30px;

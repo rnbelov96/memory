@@ -32,7 +32,7 @@
 
 .invest__text {
   font-size: 20px;
-  margin-bottom: 64px;
+  margin-bottom: 128px;
   text-align: center;
   color: white;
 
@@ -47,29 +47,6 @@
 
   @media (max-width: 1150px) {
     margin-right: auto;
-  }
-
-  &::after {
-    position: absolute;
-    content: url('/src/img/invest-phone-full.png');
-    left: -885px;
-    top: -78px;
-    z-index: -1;
-
-    @media (max-width: 1150px) {
-      position: relative;
-      left: 0;
-      top: 0;
-      display: block;
-      @include max-width(376px);
-      aspect-ratio: 376/760;
-      content: '';
-      @include bg;
-      background-image: url('/src/img/invest-phone.png');
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 20px;
-    }
   }
 }
 
@@ -213,4 +190,54 @@
   color: white;
   font-weight: bold;
   text-align: center;
+}
+
+.invest__img-box {
+  max-width: 376px;
+  position: absolute;
+  left: -440px;
+  top: -98px;
+
+  @media (max-width: 1150px) {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+}
+
+.invest__phone-img {
+  @media (max-width: 650px) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.invest__phone-bg {
+  position: absolute;
+  z-index: -1;
+  top: 54px;
+  left: -321px;
+
+  @media (max-width: 1150px) {
+    display: none;
+  }
+}
+
+.invest__phone-caption {
+  font-size: 56px;
+  color: white;
+  text-align: right;
+  margin-bottom: 0;
+  position: absolute;
+  top: 186px;
+  right: 38px;
+
+  @media (max-width: 650px) {
+    top: 162px;
+    right: 31px;
+    font-size: 40px !important;
+  }
 }
