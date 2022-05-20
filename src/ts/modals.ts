@@ -6,7 +6,14 @@ const openedModalList: Element[] = [];
 const modalFormInfoList = [
   {
     title: 'Получите подробную информацию по франшизе',
+    subtitle:
+      'Заполните форму, чтобы заказать обратный звонок, и наш менеджер свяжется с вами в ближайшее время',
     button: 'ЗАКАЗАТЬ ЗВОНОК',
+  },
+  {
+    title: 'Получите подробную информацию по франшизе',
+    subtitle: 'Заполните форму и получите подробную информацию по франшизе',
+    button: 'Получить презентацию',
   },
 ];
 
@@ -42,6 +49,9 @@ let isYoutubeModalOpened = false;
 const formTitleEl = formModalEl.querySelector(
   '.js-modal-form-title',
 ) as HTMLSpanElement;
+const formSubtitleEl = formModalEl.querySelector(
+  '.js-modal-form-subtitle',
+) as HTMLSpanElement;
 const formBtnEl = formModalEl.querySelector(
   '.js-modal-form-btn',
 ) as HTMLButtonElement;
@@ -50,8 +60,8 @@ const modalWrapperElList = document.querySelectorAll('.modal__center-wrapper');
 modalElList.forEach(modalEl => {
   modalEl.addEventListener('click', (e: Event) => {
     if (
-      e.target === e.currentTarget
-      || [...modalWrapperElList].includes(e.target as Element)
+      e.target === e.currentTarget ||
+      [...modalWrapperElList].includes(e.target as Element)
     ) {
       const clickedModal = e.currentTarget as HTMLDivElement;
       // Если модальных видео несколько, проверить каждое
@@ -90,6 +100,18 @@ callbackBtnElList.forEach(btn => {
     openedModalList.unshift(formModalEl);
     formTitleEl.textContent = modalFormInfoList[0].title;
     formBtnEl.textContent = modalFormInfoList[0].button;
+    formSubtitleEl.textContent = modalFormInfoList[0].subtitle;
+    openModal(formModalEl as HTMLDivElement);
+  });
+});
+
+const presentBtnElList = document.querySelectorAll('.js-present');
+presentBtnElList.forEach(btn => {
+  btn.addEventListener('click', () => {
+    openedModalList.unshift(formModalEl);
+    formTitleEl.textContent = modalFormInfoList[1].title;
+    formBtnEl.textContent = modalFormInfoList[1].button;
+    formSubtitleEl.textContent = modalFormInfoList[1].subtitle;
     openModal(formModalEl as HTMLDivElement);
   });
 });
